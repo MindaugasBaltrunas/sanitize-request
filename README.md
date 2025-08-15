@@ -79,8 +79,7 @@ app.use('/api/custom', sanitizeRequest({ config: customConfig }));
 ```typescript
 app.use('/api', sanitizeRequest({
   config: 'strict',
-  skipPaths: ['/api/auth', '/api/upload'], // Skip certain endpoints
-  logWarnings: process.env.NODE_ENV === 'development',
+  skipPaths: ['/api/auth', '/api/upload'],
   onSanitized: (metadata) => {
     // Log to monitoring service
     logger.info('Content sanitized', {
